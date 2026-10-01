@@ -1,0 +1,188 @@
+:root {
+    --fundo: #08050D;
+    --fundo-secundario: #100A1A;
+    --card: #181026;
+    --borda: #2B1B3D;
+
+    --roxo: #6D28D9;
+    --roxo-destaque: #8B5CF6;
+    --lavanda: #A78BFA;
+
+    --texto: #F5F3FF;
+    --texto-secundario: #A8A0B8;
+
+    --sucesso: #22C55E;
+    --erro: #EF4444;
+}
+body{
+    margin: 0px;
+    background-color: var(--fundo-secundario);
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+
+    height: 85px;
+    background-color: var(--fundo);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 30px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+#logo {
+    color: var(--azul-destaque);
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    padding: 25px;
+
+    margin-right: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar a {
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.navbar-a:hover {
+    color: var(--texto);
+}
+
+#titulo{
+    font-size: 25px;
+    color: var(--texto);
+    text-align: center;
+}
+.card{
+    color: var(--texto-secundario);
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 25px;
+}
+.card-container {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    padding: 20px;
+    min-height: 400px;
+    box-sizing: border-box;
+
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+    border-color: var(--roxo-destaque);
+}
+.card-container h4{
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#foto {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+#discord{
+    color: var(--texto);
+    font-size: 35px;
+    text-align: center;
+    padding: 35px;
+
+}
+#somos{
+    color: var(--texto-secundario);
+    padding: 55px;
+    font-size: 25px;
+    background-color: var(--card);
+    border-radius: 35px;
+    margin: 25px;
+        border: 1px solid var(--borda);
+    border-radius: 18px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#somos:hover{
+    transform: translateY(-5px);
+    border-color: var(--roxo-destaque);
+ }
+
+#discordlogo{
+    width: 350px;
+    border-radius: 450px
+}
+button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 12px 30px;
+
+    background: var(--roxo);
+    color: var(--texto);
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+button:hover{
+    transform: scale(1.1);
+}
+.destaque{
+    color: var(--roxo-destaque)
+}
+.botao {
+    display: block;
+    width: fit-content;
+    margin: 15px auto 0;
+    padding: 12px 30px;
+
+    background: var(--roxo);
+    color: var(--texto);
+
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: var(--roxo-destaque);
+    transform: scale(1.1);
+}
+.card-texto{
+    text-align: center;
+    margin: 35px;
+
+}
+.footer{
+    font-size: 15px;
+    padding-top: 130px;
+}
+.nada{
+    color: var(--texto);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
