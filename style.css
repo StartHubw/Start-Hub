@@ -1,3 +1,7 @@
+/* ==========================================================================
+   StartHUB — estilos
+   Mobile-first no que importa: nada de largura fixa, tudo flui com a tela.
+   ========================================================================== */
 :root {
     --fundo: #08050D;
     --fundo-secundario: #100A1A;
@@ -13,176 +17,298 @@
 
     --sucesso: #22C55E;
     --erro: #EF4444;
-}
-body{
-    margin: 0px;
-    background-color: var(--fundo-secundario);
+
+    --nav-h: 72px;
+    --pad-x: clamp(16px, 4vw, 32px);
 }
 
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    background-color: var(--fundo-secundario);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* garantia extra contra rolagem lateral */
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a:focus-visible {
+    outline: 2px solid var(--lavanda);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* Texto só para leitores de tela / SEO */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Navbar ---------- */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 2000;
 
-    height: 85px;
-    background-color: var(--fundo);
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 30px;
-
-    border-bottom: 1px solid var(--borda);
-}
-
-#logo {
-    color: var(--azul-destaque);
-    width: 100px;
-    height: 100px;
-    font-weight: bold;
-    padding: 25px;
-
-    margin-right: auto;
-}
-
-.navbar {
     display: flex;
     align-items: center;
     gap: 30px;
+
+    min-height: var(--nav-h);
+    padding: 8px max(var(--pad-x), env(safe-area-inset-right)) 8px max(var(--pad-x), env(safe-area-inset-left));
+
+    background-color: var(--fundo);
+    border-bottom: 1px solid var(--borda);
+}
+
+.navbar .logo-link {
+    display: flex;
+    margin-right: auto;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: auto;
+    height: 56px;
 }
 
 .navbar a {
     color: var(--texto);
     text-decoration: none;
     font-size: 16px;
-
-    transition: 0.3s;
+    white-space: nowrap;
+    transition: color 0.3s;
 }
 
-.navbar-a:hover {
-    color: var(--texto);
+.navbar a:hover { color: var(--lavanda); }
+
+/* O link do logo não leva sublinhado/animação dos links de texto */
+.navbar a.logo-link { padding: 0; }
+.navbar a.logo-link::after { display: none; }
+
+/* ---------- Layout geral ---------- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 max(var(--pad-x), env(safe-area-inset-right)) 64px max(var(--pad-x), env(safe-area-inset-left));
 }
 
-#titulo{
-    font-size: 25px;
+.titulo {
+    margin: 48px 0 24px;
+    font-size: clamp(22px, 4.5vw, 28px);
     color: var(--texto);
     text-align: center;
 }
-.card{
-    color: var(--texto-secundario);
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-     gap: 25px;
+
+/* ---------- Discord ---------- */
+#discord {
+    padding: 40px 0 8px;
+    text-align: center;
 }
+
+#discord h2 {
+    margin: 0 0 24px;
+    font-size: clamp(24px, 6vw, 35px);
+    line-height: 1.2;
+    color: var(--texto);
+}
+
+#discordlogo {
+    width: min(320px, 80%);
+    margin: 0 auto;
+    border-radius: 999px;
+}
+
+/* ---------- Quem somos ---------- */
+#somos {
+    padding: clamp(24px, 5vw, 48px);
+    background-color: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    color: var(--texto-secundario);
+    font-size: clamp(16px, 2.4vw, 20px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#somos p { margin: 0 0 1em; }
+#somos p:last-child { margin-bottom: 0; }
+
+/* ---------- Cards ---------- */
+.card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 24px;
+    color: var(--texto-secundario);
+}
+
 .card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
     background: var(--card);
     border: 1px solid var(--borda);
     border-radius: 18px;
-    padding: 20px;
-    min-height: 400px;
-    box-sizing: border-box;
-
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.card-container:hover {
-    transform: translateY(-5px);
-    border-color: var(--roxo-destaque);
-}
-.card-container h4{
+.card-container h3 {
+    margin: 4px 0 12px;
+    font-size: 24px;
+    line-height: 1.25;
     text-align: center;
-    font-size: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color: var(--texto);
 }
-#foto {
+
+.card-container h3.destaque { color: var(--roxo-destaque); }
+
+.card-container p {
+    margin: 0 0 16px;
+    font-size: 15px;
+}
+
+.card-texto { text-align: center; }
+
+/* Imagens dos cards */
+.foto {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    margin-bottom: 16px;
+    object-fit: contain;
+    background: #fff;           /* as ilustrações têm fundo branco */
     border-radius: 12px;
 }
-#discord{
-    color: var(--texto);
-    font-size: 35px;
+
+.foto--design { background: transparent; }
+
+.foto--avatar {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: transparent;
+}
+
+/* Empurra o botão para o fim do card (alinha os botões entre cards) */
+.card-container .botao { margin-top: auto; }
+
+.card-creditos {
+    margin: 16px 0 0;
+    font-size: 14px;
     text-align: center;
-    padding: 35px;
-
-}
-#somos{
     color: var(--texto-secundario);
-    padding: 55px;
-    font-size: 25px;
-    background-color: var(--card);
-    border-radius: 35px;
-    margin: 25px;
-        border: 1px solid var(--borda);
-    border-radius: 18px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-#somos:hover{
-    transform: translateY(-5px);
-    border-color: var(--roxo-destaque);
- }
-
-#discordlogo{
-    width: 350px;
-    border-radius: 450px
+/* ---------- Participantes ---------- */
+.participantes .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* última linha fica centralizada */
 }
-button {
-    display: block;
-    margin: 15px auto 0;
-    padding: 12px 30px;
 
-    background: var(--roxo);
-    color: var(--texto);
+.participantes .card-container {
+    flex: 0 1 200px;
+}
 
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+.participantes .card-container h3 { font-size: 20px; }
+.participantes .card-container p { margin-bottom: 12px; }
+.participantes .card-container .foto { margin: auto 0 0; }
 
-    transition: 0.5s;
-}
-button:hover{
-    transform: scale(1.1);
-}
-.destaque{
-    color: var(--roxo-destaque)
-}
+/* ---------- Botão ---------- */
 .botao {
     display: block;
     width: fit-content;
     margin: 15px auto 0;
     padding: 12px 30px;
+    min-height: 44px;            /* alvo de toque confortável */
 
     background: var(--roxo);
     color: var(--texto);
 
     text-decoration: none;
-    border-radius: 10px;
+    text-align: center;
     font-weight: bold;
+    border-radius: 10px;
 
-    transition: 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
-.botao:hover {
-    background: var(--roxo-destaque);
-    transform: scale(1.1);
-}
-.card-texto{
+/* ---------- Páginas vazias (vídeos / design) ---------- */
+.nada {
+    margin: 96px 0;
+    font-size: clamp(20px, 4vw, 28px);
     text-align: center;
-    margin: 35px;
-
-}
-.footer{
-    font-size: 15px;
-    padding-top: 130px;
-}
-.nada{
     color: var(--texto);
-    text-align: center;
-    display: flex;
-    justify-content: center;
+}
+
+/* ---------- Hover (somente onde existe mouse) ---------- */
+@media (hover: hover) {
+    .card-container:hover,
+    #somos:hover {
+        transform: translateY(-5px);
+        border-color: var(--roxo-destaque);
+    }
+
+    .botao:hover {
+        background: var(--roxo-destaque);
+        transform: scale(1.06);
+    }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 600px) {
+    :root { --nav-h: 64px; }
+
+    .navbar { gap: 16px; }
+    .navbar a { font-size: 14px; }
+    .logo { height: 48px; }
+
+    .titulo { margin-top: 40px; }
+    #discord { padding-top: 28px; }
+
+    .card { gap: 16px; }
+    .card-container { padding: 16px; }
+    .foto { height: 180px; }
+
+    /* Participantes: 2 por linha, mais compactos */
+    .participantes .card { gap: 14px; }
+    .participantes .card-container {
+        flex: 0 1 calc(50% - 7px);
+        padding: 12px;
+    }
+    .participantes .card-container h3 { font-size: 17px; }
+    .participantes .card-container p { font-size: 14px; margin-bottom: 10px; }
+    .foto--avatar { height: auto; }
+
+    .nada { margin: 64px 0; }
+}
+
+/* Telas bem estreitas (ex.: 320px) */
+@media (max-width: 360px) {
+    .navbar { gap: 12px; }
+    .navbar a { font-size: 13px; }
+    .logo { height: 44px; }
+}
+
+/* Link do Discord: o <a> envolve a imagem e herda o formato de pílula */
+#discord a {
+    display: block;
+    width: min(320px, 80%);
+    margin: 0 auto;
+    border-radius: 999px;
+    transition: transform 0.3s ease;
+}
+#discord a #discordlogo { width: 100%; }
+
+@media (hover: hover) {
+    #discord a:hover { transform: scale(1.04); }
 }

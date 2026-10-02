@@ -16,9 +16,9 @@
 
   /* Elementos que aparecem com fade + slide ao entrar na tela */
   const REVEAL = [
-    '#discord > h4',
+    '#discord > h2',
     '#discordlogo',
-    '#titulo',
+    '.titulo',
     '#somos',
     '.card-container',
     '.nada',
@@ -31,7 +31,7 @@
 
   const css = `
     html { scroll-behavior: smooth; }
-    #quem-somos, #projetos, #participantes { scroll-margin-top: 110px; }
+    #quem-somos, #projetos, #participantes { scroll-margin-top: calc(var(--nav-h, 72px) + 16px); }
 
     /* Barra de progresso de rolagem */
     .sh-progress {
@@ -70,22 +70,26 @@
       position: relative; overflow: hidden;
       transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
     }
-    body .card-container:hover { box-shadow: 0 18px 40px -18px rgba(109, 40, 217, .55); }
+    @media (hover: hover) {
+      body .card-container:hover { box-shadow: 0 18px 40px -18px rgba(109, 40, 217, .55); }
+    }
     .card-container::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       opacity: 0; transition: opacity .35s ease;
       background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%),
                   rgba(139, 92, 246, .16), transparent 60%);
     }
-    .card-container:hover::before { opacity: 1; }
-    .card-container #foto { transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
-    .card-container:hover #foto { transform: scale(1.04); }
+    @media (hover: hover) { .card-container:hover::before { opacity: 1; } }
+    .card-container .foto { transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
+    @media (hover: hover) { .card-container:hover .foto { transform: scale(1.04); } }
 
     /* "Quem somos" */
     body #somos {
       transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
     }
-    body #somos:hover { box-shadow: 0 18px 40px -18px rgba(109, 40, 217, .55); }
+    @media (hover: hover) {
+      body #somos:hover { box-shadow: 0 18px 40px -18px rgba(109, 40, 217, .55); }
+    }
 
     /* Botões: feedback ao clicar */
     body .botao:active, body button:active { transform: scale(.97); }
@@ -203,7 +207,7 @@
           io.unobserve(el);
 
           const delay = Math.min(i++, 6) * 90;
-          const distance = el.tagName === 'H4' ? 16 : 28;
+          const distance = /^H[1-6]$/.test(el.tagName) ? 16 : 28;
 
           el.classList.add('sh-in');
           const anim = el.animate(

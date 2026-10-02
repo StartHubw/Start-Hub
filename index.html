@@ -2,122 +2,114 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="StartHUB: um grupo que cria sites, vídeos e design para servidores, comunidades e projetos.">
+    <meta name="theme-color" content="#08050D">
+    <meta name="color-scheme" content="dark">
+    <title>StartHUB</title>
+    <link rel="icon" type="image/png" href="imagens/favicon.png">
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio</title>
+    <script src="script.js"></script>
 </head>
 <body>
     <nav class="navbar">
-        <img id="logo" src="imagens/3196d6dc-5e3c-4c6d-b9c6-fe5b736b088a.png">
+        <a href="index.html" class="logo-link" aria-label="StartHUB — página inicial">
+            <img class="logo" src="imagens/logo.webp" alt="" width="56" height="56">
+        </a>
         <a href="#quem-somos">Quem somos</a>
         <a href="#projetos">Projetos</a>
         <a href="#participantes">Participantes</a>
     </nav>
 
     <main>
+        <h1 class="sr-only">StartHUB</h1>
 
         <div id="discord">
-
-            <h4>Entre no nosso Discord</h4>
-            <img id="discordlogo" alt="logo discord" src="imagens/discord-removebg-preview.png">
-
+            <h2>Entre no nosso Discord</h2>
+            <a href="https://discord.gg/7MZEnXq7bt" target="_blank" rel="noopener noreferrer" aria-label="Entrar no servidor do Discord da StartHUB">
+                <img id="discordlogo" alt="Discord" src="imagens/discord.webp" width="667" height="145">
+            </a>
         </div>
 
-        <div id="quem-somos" class="quem-somos">
-            <h4 id="titulo"> Quem somos?</h4>
-            <p id="somos">A StartHUB é um pequeno grupo de pessoas que gosta de tecnologia e criação. Trabalhamos juntos em projetos de sites, vídeos e design, sempre buscando aprender e melhorar a cada projeto.
+        <section id="quem-somos" class="quem-somos">
+            <h2 class="titulo">Quem somos?</h2>
+            <div id="somos">
+                <p>A StartHUB é um pequeno grupo de pessoas que gosta de tecnologia e criação. Trabalhamos juntos em projetos de sites, vídeos e design, sempre buscando aprender e melhorar a cada projeto.</p>
+                <p>Ainda estamos começando, mas nossa ideia é transformar nossas ideias em projetos reais e, com o tempo, crescer cada vez mais.</p>
+            </div>
+        </section>
 
-Ainda estamos começando, mas nossa ideia é transformar nossas ideias em projetos reais e, com o tempo, crescer cada vez mais.x</p>
-        </div>
-
-        <div id="projetos">
-
-            <h4 id="titulo">Nossos projetos</h4>
+        <section id="projetos">
+            <h2 class="titulo">Nossos projetos</h2>
 
             <div class="card">
-
                 <div class="card-container">
-                    <h4>Sites</h4>
+                    <h3>Sites</h3>
                     <p>
                         Sobre:<br>
                         Desenvolvimento de sites personalizados para servidores, comunidades e projetos. Criamos páginas modernas, responsivas e adaptadas à identidade visual do seu projeto.
                     </p>
-                    <img id="foto" src="imagens/undraw_dev-environment_n5by.png">
+                    <img class="foto" src="imagens/sites.webp" alt="Ilustração de um ambiente de desenvolvimento de sites" width="800" height="619" loading="lazy">
                     <a href="sites.html" class="botao">Acessar</a>
                 </div>
 
-                                <div class="card-container">
-                    <h4>Videos</h4>
+                <div class="card-container">
+                    <h3>Vídeos</h3>
                     <p>
                         Sobre:<br>
                         Edição de vídeos para divulgação, redes sociais, projetos e comunidades. Trabalhamos com cortes, efeitos, transições e edição personalizada de acordo com a proposta do conteúdo.
                     </p>
-                    <img id="foto" src="imagens/undraw_video-files_cxl9.png">
+                    <img class="foto" src="imagens/videos.webp" alt="Ilustração de arquivos de vídeo" width="800" height="482" loading="lazy">
                     <a href="videos.html" class="botao">Acessar</a>
                 </div>
-                    <div class="card-container">
-                    <h4>Design</h4>
+
+                <div class="card-container">
+                    <h3>Design</h3>
                     <p>
                         Sobre:<br>
                         Criação de artes e materiais visuais para servidores, comunidades e projetos. Desenvolvemos banners, posts, capas e outras peças seguindo a identidade visual do seu projeto.
                     </p>
-                    <img id="foto" src="imagens/Design team-amico.png">
+                    <img class="foto foto--design" src="imagens/design.webp" alt="Ilustração de uma equipe de design trabalhando" width="800" height="780" loading="lazy">
                     <a href="design.html" class="botao">Acessar</a>
                 </div>
-                </div>
-
-
             </div>
+        </section>
 
-        </div>
+        <section id="participantes" class="participantes">
+            <h2 class="titulo">Participantes</h2>
 
-        <div id="participantes" class="participantes">
-            <h4 id="titulo">Participantes</h4>
             <div class="card">
-                  <div class="card-container">
-                    <h4 class="destaque">Moka Ichigo</h4>
-                    <p>
-                        Designer
-                    </p>
-                    <img id="foto" alt="foto-de-perfil" src="imagens/Moka.png">
-                    
+                <div class="card-container">
+                    <h3 class="destaque">Moka Ichigo</h3>
+                    <p>Designer</p>
+                    <img class="foto foto--avatar" src="imagens/moka.webp" alt="Foto de perfil de Moka Ichigo" width="256" height="256" loading="lazy">
                 </div>
-                                <div class="card-container">
-                    <h4>Ctszin</h4>
-                    <p>
-                        Programador
-                    </p>
-                    <img id="foto" alt="foto-de-perfil" src="imagens/cts.png">
-                    
+
+                <div class="card-container">
+                    <h3>Ctszin</h3>
+                    <p>Programador</p>
+                    <img class="foto foto--avatar" src="imagens/ctszin.webp" alt="Foto de perfil de Ctszin" width="281" height="281" loading="lazy">
                 </div>
-                                <div class="card-container">
-                    <h4>R4m0n</h4>
-                    <p>
-                        Programador
-                    </p>
-                    <img id="foto" alt="foto-de-perfil" src="imagens/Ramon.png">
-                    
+
+                <div class="card-container">
+                    <h3>R4m0n</h3>
+                    <p>Programador</p>
+                    <img class="foto foto--avatar" src="imagens/ramon.webp" alt="Foto de perfil de R4m0n" width="338" height="338" loading="lazy">
                 </div>
-                                <div class="card-container">
-                    <h4>Nocries</h4>
-                    <p>
-                        Staff
-                    </p>
-                    <img id="foto" alt="foto-de-perfil" src="imagens/nocries.png">
-                    
+
+                <div class="card-container">
+                    <h3>Nocries</h3>
+                    <p>Staff</p>
+                    <img class="foto foto--avatar" src="imagens/nocries.webp" alt="Foto de perfil de Nocries" width="256" height="256" loading="lazy">
                 </div>
-                                                <div class="card-container">
-                    <h4>BryanGJA</h4>
-                    <p>
-                        Staff
-                    </p>
-                    <img id="foto" alt="foto-de-perfil" src="imagens/Bryan.png">
-                    
+
+                <div class="card-container">
+                    <h3>BryanGJA</h3>
+                    <p>Staff</p>
+                    <img class="foto foto--avatar" src="imagens/bryan.webp" alt="Foto de perfil de BryanGJA" width="480" height="480" loading="lazy">
                 </div>
             </div>
-
-        </div>
+        </section>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>
